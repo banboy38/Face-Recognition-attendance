@@ -2,47 +2,84 @@
 
 
 ### What is it?
-This application help teacher and student mark and view their attendance by applying 
-face recognition technology.
+Attendance System is a Web Application that lets the User gets his attendance marked by
+utilising facial recognition. The User through this application can get his attendance marked
+for numerous courses he has been added to. He can Register himself first and then log in to
+his account. After that, he can contact the admin to get his profile updated. After that when
+the admin sets up the user profile, the latter can mark his attendance by simply switching on
+his camera, getting his photo clicked and submitting it. 
+The application intends to serve as an efficient substitute for traditional attendance
+systems. It can be used in Schools and University Institutions where attendance is considered
+mandatory. 
 
 
 ### Face Recognition API
-For comparing and recognizing faces, we use [Face Recognition API](https://pypi.org/project/face-recognition/)
+For comparing and recognizing faces, I have used [Face Recognition API](https://pypi.org/project/face-recognition/) .
 It simply compares the face of the person with the face of the person in the database.
+The images get compared using the Face Recognition Api which recognizes and manipulates faces
+from python or from the command line. It’s built using dlib’s stat-of-the-art face
+recognition. 
+This compares a list of face encodings against a candidate encoding to see if they match. It
+returns a list of True/False values indicating which known_face_encodings match the face
+encoding to check. 
 It requires C++ and Cmake to be installed in the system.
 
 
 ### Tech Stack
 1. Django
+
+Django has been used to handle the authentication and Database. I have made use of one of its
+most powerful features the Automatic admin Interface where an admin can manage content on the
+site.
+
 2. Bootstrap
+
+Bootstrap have been used as a frontend framework to build this fast and responsive site with its various helpful JavaScript plugins alongside with HTML & CSS. 
+
 3. Python
 
+Python was chosen as the backend language. 
 
-### How to run it locally
-1. Install Python 3.7+ in the system and make sure you have configured the environment variables.
+### Functionalities
+
+The Functionalities that can be performed by the admin are:
+1. Adding and Updating Courses.
+2. Adding and Updating Student/User Profile.
+3. Viewing successfully marked attendance and Users Attendance History.
+
+The Functionalities that can be performed by the User are:
+1. Register and Login
+2. Mark his Attendance
+3. View his Attendance
+
+### How to run it locally? 
+1. Clone this repository in your local System.
+2. Install Python 3.7+ in your system and make sure you have configured the environment variables.
     Test the environment variables by running the following command:
     ```
    python
    ```
    If it works, you can proceed further.
 
-2. Install C++ compiler in the system and cmkae sure you have configured the environment variables.
+2. Install C++ compiler in the system and CMake. Do Make sure you have configured the environment variables.
     Test the environment variables by running the following command:
     ```
    g++
    ```
    If it works, you can proceed further.
 
-3. Create a virtual environment and activate it.
-    Test the environment variables by running the following command:
-    ```
-   pip install virtualenv
-   virtualenv venv
-   source venv/bin/activate
+3. Create a virtual environment by running the following command
    ```
-   If it works, you can proceed further.
+   python -m venv env
+   ```
+   After the environment gets created you need to activate it.
+    ```
+    (source).\env\Scripts\activate
+     ```
+    Test the environment variables.
+    If it works, you can proceed further.
 
-4. Install the required packages.
+4. Install the required packages by running the following command.
     ```
    pip install -r requirements.txt
    ```
@@ -56,7 +93,7 @@ It requires C++ and Cmake to be installed in the system.
    python manage.py makemigrations
    python manage.py migrate
    ```
-7. Create a superuser.
+7. Create a superuser. Here you would need to enter the details of an admin.
     ```
    python manage.py createsuperuser
    ```
@@ -64,10 +101,14 @@ It requires C++ and Cmake to be installed in the system.
     ```
    python manage.py runserver
    ```
-   
-### How to run it on Server
-Make any changes to the github repository it will trigger the build for the new 
-commit and then the new application will be deployed on the server.
+9.  That's it! You can enjoy now. 
+ 
+### Link to the application
+Check out the live demo:
+https://oyster-app-poiwp.ondigitalocean.app/
+
+Note: You would probably be needing to contact me to get your User profile updated. Feel Free
+to do so. You can email me here : kajalmahato7677@gmail.com
 
 
-
+Please do ⭐ the repository, if it helped you in anyway.
