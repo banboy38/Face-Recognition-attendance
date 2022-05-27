@@ -1,0 +1,12 @@
+{% extends "account/base.html" %}
+{% block title %}Dashboard{% endblock title %}
+{% block content %}
+<h1>{{welcome}}</h1>
+<br>
+<a href="{% url 'profile' %}" class="btn btn-primary">Show Profile</a> or
+{#<a href="{% url 'account:password_change' %}" class="btn btn-warning">Change your password</a>#}
+    <a href="{% url 'attendance' %}" class="btn btn-warning">Mark Attendance</a>
+    <a href="{% url 'show' %}" class="btn btn-info">View Attendance</a>
+
+<hr>
+{% endblock content %}

@@ -1,0 +1,89 @@
+{% extends 'account/base.html' %}
+{% block title %}
+    Student Attendance
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h4 class="text-center text-black-50 mt-lg-3 mt-sm-0">Student Attendance</h4>
+        <div class="row">
+            <alert type="info" dismissible="true" class="alert alert-info">
+                <strong>Important!</strong>
+                <p id="error_msg">Make sure proper lighting and clean your camera lens to mark your attendance</p>
+            </alert>
+            {% if marked == "False" %}
+                <alert class="alert-warning" type="warning">
+                    <strong>Retake attendance!</strong>
+
+                </alert>
+            {% endif %}
+            <div class="col-md-6 col-lg-6 col-sm-12 m-0">
+                <form action="" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <label for="course" class="text-start text-black mb-2">Select Proper Course</label>
+                    <select name="course" id="course" class="form-select">
+                        {% for course in courses %}
+                            <option value="{{ course.id }}">{{ course.course_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="mt-2 mb-2">
+                        <video id="video" autoplay></video>
+                    </div>
+                    <input type="text" name="image_data" id="image_data" hidden>
+                    <button type="submit" class="btn btn-outline-primary btn-block mt-2">Submit</button>
+                </form>
+
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-12 mt-lg-3">
+                <button id="start-camera" class="btn btn-primary">Start Camera</button>
+                <button id="click-photo" class="btn btn-info">Click Photo</button>
+                <button id="stop-camera" class="btn btn-danger">Stop Camera</button>
+                <canvas id="canvas" class="mt-4"></canvas>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        let camera_button = document.querySelector("#start-camera");
+        let video = document.querySelector("#video");
+        let click_button = document.querySelector("#click-photo");
+        let canvas = document.querySelector("#canvas");
+        let stop = document.querySelector("#stop-camera");
+        let image_data = document.querySelector("#image_data");
+
+        camera_button.addEventListener('click', async function () {
+            let stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
+            video.srcObject = stream;
+        });
+
+        stop.addEventListener('click', function () {
+            let tracks = video.srcObject.getTracks();
+            tracks.forEach(function (track) {
+                track.stop();
+            });
+            video.srcObject = null;
+        });
+
+
+        click_button.addEventListener('click', function () {
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+            let image_base64 = document.querySelector("#canvas").toDataURL('image/jpeg').replace(/^data:image\/jpeg;base64,/, "");
+            image_data.value = image_base64;
+        });
+
+    </script>
+    <style>
+        #video {
+            width: 100%;
+            height: 100%;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+{% endblock content %}

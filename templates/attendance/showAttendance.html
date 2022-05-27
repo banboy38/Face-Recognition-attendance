@@ -1,0 +1,64 @@
+{% extends 'account/base.html' %}
+
+{% block title %}
+    Student Attendance
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title mt-2">View Attendance</h3>
+                    </div>
+                    <form class="d-flex justify-content-end my-3" method="post" action="">
+                    {% csrf_token %}
+                        <select name="course" class="mx-2 p-2">
+                            {% for course in courses %}
+                                <option value="{{ course.id }}">{{ course.course_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit" class="btn btn-outline-primary">Filter</button>
+                    </form>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Course Name</th>
+                                            <th>Attendance</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for value in attendance %}
+                                            <tr>
+                                                <td>{{ value.course.course_name }}</td>
+                                                <td>
+                                                    {% if value.status %}
+                                                        <span class="label label-success">Present</span>
+                                                    {% else %}
+                                                        <span class="label label-danger">Absent</span>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {{ value.date }}
+                                                </td>
+                                                <td>
+                                                    {{ value.time }}
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
