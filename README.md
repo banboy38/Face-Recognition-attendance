@@ -1,7 +1,7 @@
-# Face recognition based attendance system
+# Face recognition based attendance system 
 
 
-### What is it?
+### What is it? 🤔
 Attendance System is a Web Application that lets the User gets his attendance marked by
 utilising facial recognition. The User through this application can get his attendance marked
 for numerous courses he has been added to. He can Register himself first and then log in to
@@ -12,8 +12,12 @@ The application intends to serve as an efficient substitute for traditional atte
 systems. It can be used in Schools and University Institutions where attendance is considered
 mandatory. 
 
+### Vision of the Application 🚀
+This Application currently serves the basic need of a Student of keeping his attendance record but has the ability with extra features added to act as a Student Portal where the Student can not only mark or view his attendance but can also see his Number of classes attend out of number of classes held. And get his attendance percentage. Get Notified if attendance gets below the required percentage. Can view his grades also and have the chat feature to directly contact to his teacher through the Web Application. 
 
-### Face Recognition API
+
+
+### Face Recognition API 💻
 For comparing and recognizing faces, I have used [Face Recognition API](https://pypi.org/project/face-recognition/) .
 It simply compares the face of the person with the face of the person in the database.
 The images get compared using the Face Recognition Api which recognizes and manipulates faces
@@ -25,7 +29,7 @@ encoding to check.
 It requires C++ and Cmake to be installed in the system.
 
 
-### Tech Stack
+### Tech Stack 📑
 1. Django
 
 Django has been used to handle the authentication and Database. I have made use of one of its
@@ -40,7 +44,7 @@ Bootstrap have been used as a frontend framework to build this fast and responsi
 
 Python was chosen as the backend language. 
 
-### Functionalities
+### Functionalities 
 
 The Functionalities that can be performed by the admin are:
 1. Adding and Updating Courses.
