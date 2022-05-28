@@ -114,5 +114,8 @@ https://oyster-app-poiwp.ondigitalocean.app/
 Note: You would probably be needing to contact me to get your User profile updated. Feel Free
 to do so. You can email me here : kajalmahato7677@gmail.com
 
+### Link to the documentation
+Check out the deatiled documentation of the Application:
+https://drive.google.com/file/d/1kkM15j6sSH0J9lVR5ZT0wiiHNJrMFRIz/view?usp=sharing
 
 Please do ⭐ the repository, if it helped you in anyway.
