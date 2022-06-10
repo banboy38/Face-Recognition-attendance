@@ -38,7 +38,7 @@ site.
 
 2. Bootstrap
 
-Bootstrap have been used as a frontend framework to build this fast and responsive site with its various helpful JavaScript plugins alongside with HTML & CSS. 
+Bootstrap has been used as a frontend framework to build this fast and responsive site with its various helpful JavaScript plugins alongside HTML & CSS. 
 
 3. Python
 
